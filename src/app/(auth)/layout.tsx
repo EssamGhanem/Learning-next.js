@@ -17,13 +17,16 @@ export default function AuthLayout({
   users:React.ReactNode;
 }) {
 
+  const pathname = usePathname();
+
+  const [input,setInput] = useState('');
   console.log("User : "+users);
   return (
     <>
       {users}
       <div>
         
-        <ul> 
+        <ul>
         {navLinks.map((link)=>{
           const isActive:boolean = link.href == pathname;
           return(<li key={link.name}><Link href={`${link.href}`} className={isActive?"isActive":""}>{link.name}</Link></li>);
